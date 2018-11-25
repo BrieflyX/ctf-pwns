@@ -14,3 +14,5 @@ The kernel handles several syscalls required by libc. But in `read` and `write` 
 
 Now we can read arbitrary file on the host, thus having leaks via `/proc/self/maps`.
 The hypercall is implemented via the specific I/O port. An unchecked `ioctl` hypercall leads us to control kvm instance. We can set a new phisical memory region for vm, mapping the stack segment into the vm. Then we set a page table entry for the new phisical memory, and search `ioctl(KVM_RUN)` return address on the stack, modifying to our own rop chain.
+
+Author's source code and writeup: <https://github.com/david942j/ctf-writeups/tree/master/hitcon-2018/abyss>
