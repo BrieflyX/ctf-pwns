@@ -1,5 +1,7 @@
 # X-nuca 2018 - SSD
 
+Quite similar challenge as defcon quals 2018 [EC3](https://ctftime.org/task/6101)
+
 Self-implemented device `xnuca` in qemu, using mmio to transfer data.
 Unchecked `malloc`, `free` leads us to fastbin attack, modifying `free` got to `system`.
 
