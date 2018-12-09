@@ -14,3 +14,7 @@ I choose to overwrite `sys_arch_prctl` epilogue to execute privilege escalation 
 [Implementing and Detecting an ACPI BIOS Rootkit](https://www.blackhat.com/presentations/bh-europe-06/bh-eu-06-Heasman.pdf)
 [Applied anti-forensics: rootkits and kernel vulnerabilities](http://2012.zeronights.org/includes/docs/Oleksiuk.pdf)
 [Upgrading ACPI tables via initrd](https://www.kernel.org/doc/Documentation/acpi/initrd_table_override.txt)
+
+# Green Computing II
+
+This time the kernel applies kaslr, and the init process directly `reboot` after booting. That means we should write 'shellcode' in asl to search physical memory for kernel, then modify its code.
