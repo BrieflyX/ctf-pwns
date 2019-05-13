@@ -23,3 +23,7 @@ Flag is the password of next zip file: `OOO{60a80a7021ee5987ad2d47b339d84e4b}`
 ## LCARS333
 
 It was released quite late and I have no idea about it during competition. It adds a check for `mmap` syscall.
+
+## Author Repo
+
+The author source and exploit repo: https://github.com/o-o-overflow/dc2019q-LCARS000
