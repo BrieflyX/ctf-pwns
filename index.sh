@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sed -i "" -e '/## Index/,$d' ./README.md
+sed -i -e '/## Index/,$d' ./README.md
 echo "## Index" >> ./README.md
 echo "" >> ./README.md
 
