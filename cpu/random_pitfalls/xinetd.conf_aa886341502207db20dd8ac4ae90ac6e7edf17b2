@@ -1,0 +1,17 @@
+service random_pitfalls
+{
+    socket_type = stream
+    protocol    = tcp
+    wait        = no
+    user        = nobody
+    bind        = 0.0.0.0
+    server      = /usr/bin/timeout
+    server_args = -k1 5 /server
+    port        = 10101
+    type        = UNLISTED
+    rlimit_cpu  = 1
+
+    instances = 10000
+    cps = 10000 10
+}
+
