@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [QTCG - XCTF Finals 2019](./escape/QTCG)
 - [Blazeme - Blaze CTF 2018](./kernel/blazeme)
 - [Kpets - Facebook CTF 2019](./kernel/kpets)
 - [Plaid CTF 2019 - Spectre](./cpu/spectre)
