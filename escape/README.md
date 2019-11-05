@@ -1,3 +1,3 @@
 # Escape Related or Privilege Escalation
 
-Become root, own the kernel, and escape from vm.
+Escaping related problem, mostly qemu escape.
