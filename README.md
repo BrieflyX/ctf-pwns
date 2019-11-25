@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [Sloppy-dev - Dragon Sector CTF 2019](./kernel/sloppy-dev)
 - [Knote V2 - D^3 CTF 2019](./kernel/knoteV2)
 - [QTCG - XCTF Finals 2019](./escape/QTCG)
 - [Blazeme - Blaze CTF 2018](./kernel/blazeme)

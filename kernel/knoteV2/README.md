@@ -12,3 +12,7 @@ Since we could only `ioctl` 9 times during one device open, we need some more de
 Due to SMEP/SMAP enabled, we need to pivot stack when controlling eip. The typical `xchg rax, rsp / mov rsp, rax` do not work since `rax` points to code address. However, I find when calling `ioctl` on `/dev/ptmx`, `rbp` points to `tty_struct` we overwrite, thus a `leave; ret` would help us to pivot stack onto `tty_struct`.
 
 The whole exploit is [here](./release.c)
+
+## The author's writeup
+
+https://github.com/ray-cp/linux_kernel_pwn/tree/master/d3ctf2019-knote
