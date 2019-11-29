@@ -13,6 +13,6 @@ Due to SMEP/SMAP enabled, we need to pivot stack when controlling eip. The typic
 
 The whole exploit is [here](./release.c)
 
-## The author's writeup
+## External writeup
 
 https://github.com/ray-cp/linux_kernel_pwn/tree/master/d3ctf2019-knote
