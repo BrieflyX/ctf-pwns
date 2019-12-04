@@ -1,0 +1,74 @@
+diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+index c29976eca4a8..9b0517e6fffc 100644
+--- a/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/arch/x86/entry/syscalls/syscall_64.tbl
+@@ -357,6 +357,7 @@
+ 433	common	fspick			__x64_sys_fspick
+ 434	common	pidfd_open		__x64_sys_pidfd_open
+ 435	common	clone3			__x64_sys_clone3/ptregs
++436 common  unfork          __x64_sys_unfork
+ 
+ #
+ # x32-specific system call numbers start at 512 to avoid cache impact
+diff --git a/fs/file.c b/fs/file.c
+index 3da91a112bab..3022b3fe4f7a 100644
+--- a/fs/file.c
++++ b/fs/file.c
+@@ -1015,3 +1015,40 @@ int iterate_fd(struct files_struct *files, unsigned n,
+ 	return res;
+ }
+ EXPORT_SYMBOL(iterate_fd);
++
++int unfork_files(void)
++{
++    int fd, err = 0;
++    struct files_struct *files = get_files_struct(current);
++    struct files_struct *parent_files = get_files_struct(current->parent);
++    struct fdtable *fdt = files_fdtable(files);
++
++    spin_lock(&files->file_lock);
++    for (fd = 0; fd < fdt->max_fds; fd++) {
++        struct file *f;
++        int new_fd;
++
++        f = rcu_dereference(fdt->fd[fd]);
++        if (!f)
++            continue;
++
++        unsigned long parent_nofile = READ_ONCE(current->parent->signal->rlim[RLIMIT_NOFILE].rlim_cur);
++        err = __alloc_fd(parent_files, 0, parent_nofile, 0);
++        if (err < 0) {
++            fput(f);
++            break;
++        }
++
++        new_fd = err;
++        __fd_install(parent_files, new_fd, f);
++
++        rcu_assign_pointer(fdt->fd[fd], NULL);
++        __put_unused_fd(files, fd);
++    }
++    spin_unlock(&files->file_lock);
++
++    put_files_struct(files);
++    put_files_struct(parent_files);
++
++    return err;
++}
+diff --git a/kernel/exit.c b/kernel/exit.c
+index 5b4a5dcce8f8..dd429ad4464e 100644
+--- a/kernel/exit.c
++++ b/kernel/exit.c
+@@ -1769,3 +1769,12 @@ __weak void abort(void)
+ 	panic("Oops failed to kill thread");
+ }
+ EXPORT_SYMBOL(abort);
++
++extern int unfork_files(void);
++
++SYSCALL_DEFINE0(unfork)
++{
++    int err = 0;
++    err = unfork_files();
++    return err;
++}
