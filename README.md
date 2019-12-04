@@ -4,6 +4,8 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [Sloppy-dev - Dragon Sector CTF 2019](./kernel/sloppy-dev)
+- [Knote V2 - D^3 CTF 2019](./kernel/knoteV2)
 - [Unfork - CSAW CTF 2019 Finals](./kernel/unfork)
 - [ASIS CTF Finals 2018 - Modern KeX](./kernel/KeX)
 - [Gnote - TWCTF 2019](./kernel/gnote)
