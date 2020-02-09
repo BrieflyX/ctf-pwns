@@ -4,6 +4,8 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [ORMAPP,ORM - Codegate CTF 2020](./escape/ORM)
+- [Babyllvm - Codegate CTF 2020](./others/babyllvm)
 - [Sloppy-dev - Dragon Sector CTF 2019](./kernel/sloppy-dev)
 - [Knote V2 - D^3 CTF 2019](./kernel/knoteV2)
 - [Unfork - CSAW CTF 2019 Finals](./kernel/unfork)
