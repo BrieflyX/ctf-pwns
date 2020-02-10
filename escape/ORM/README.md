@@ -69,6 +69,8 @@ Note that in read-only segment (`0x9090909090909000`), there is a string `======
 
 Trying several times, I found that after adding 8 projects then a migrate would trigger segmentation fault. Debugging shows we can corrupt stack `R` which return addresses are stored, and there cannot be null-byte.
 
+I didn't figure out what exact reason triggers vulnerability. It seems that migrate function calls `strcpy` to copy project name onto stack `R`. Because in normal it reads 7 bytes into 8-bytes buffer, there is a null-byte preventing overflow. However, I guess, when adding more than 8 projects, the name buffer would be overwritten by a buffer pointer (which is `0xA0A0A0A0...` with no null-byte). Thus `strcpy` would also copy `description` content onto stack and cause corruption of stack `R`.
+
 I chose to return to `80808080808084B6` which prints `[+] Migrating ` string (the original call only writes 14 bytes). As long as there is a huge value resides on stack `L`, we could leak many bytes including flag string.
 
 ```
