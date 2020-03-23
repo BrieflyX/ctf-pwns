@@ -4,10 +4,11 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
-- [Meowmow - zer0pts CTF 2020](./kernel/meowmow)
+- [The Return of the Slide - FireShell CTF 2020](./browser/The-Return-of-the-Slide)
 - [Babyllvm - Codegate CTF 2020](./others/babyllvm)
 - [Unfork - CSAW CTF 2019 Finals](./kernel/unfork)
 - [ORMAPP,ORM - Codegate CTF 2020](./escape/ORM)
+- [Meowmow - zer0pts CTF 2020](./kernel/meowmow)
 - [Knote V2 - D^3 CTF 2019](./kernel/knoteV2)
 - [Sloppy-dev - Dragon Sector CTF 2019](./kernel/sloppy-dev)
 - [QTCG - XCTF Finals 2019](./escape/QTCG)
