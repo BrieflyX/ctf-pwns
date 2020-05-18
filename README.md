@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [DEFCON Quals 2020 - fungez](./kernel/fungez)
 - [Secstore 1/2 - SpamAndFlags 2020](./kernel/secstore)
 - [Ipppc - Plaid CTF 2020](./escape/ipppc)
 - [Mojo - Plaid CTF 2020](./browser/mojo)
