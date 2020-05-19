@@ -14,3 +14,5 @@ To exploit this bug, basically we need to open 2 fds, one mmap 0x2000 memory are
 Since 0x2000 and 0x1000 bytes chunks are `kmalloc`ed, there are `fd` pointer when they are freed. So I choose to leverage this pointer to leak `kmalloc-4k` mem cache address. I searched this slab and found some pci related structure containing pointers to kernel base. Then I corrupted the `fd` pointer to get arbitrary write.
 
 The pitfall is `kmalloc`ed memory is filled with null bytes. When I try to modify `modprobe_path` variable, it also cleans other data around it, which messes the kernel state. To overcome this, I dump the memory when running without kaslr, and dynamically fix all pointers in this page after leaking kernel base. 
+
+Offical repo: https://github.com/o-o-overflow/dc2020q-fungez-public
