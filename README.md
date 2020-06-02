@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [Pwn2Win CTF 2020 - Trusted Node](./escape/TrustedNode)
 - [DEFCON Quals 2020 - fungez](./kernel/fungez)
 - [DEFCON Quals 2020 - ooofs](./kernel/ooofs)
 - [DEFCON Quals 2020 - keml](./kernel/keml)
