@@ -11,7 +11,7 @@ On the other hand, when calling `copy_from_user` in push cmd, the value is not i
 ## Exploitation
 
 In the challenge we would use `userfaultfd` technique frequently.
-At first, to leak kernel base, we choose to put a `shm_file_data` (via creating and attaching a shared memory) structure on the heap (kmalloc-32), then free it. Afterwards, we push a value and use userfault to make main thread hanging in `copy_from_user`. At this time, in fault handling thread, we do a pop operation, the uninitialized value (remaining `struct ipc_namespace *ns` pointer).
+At first, to leak kernel base, we choose to put a `shm_file_data` (via creating and attaching a shared memory) structure on the heap (kmalloc-32), then free it. Afterwards, we push a value and use userfault to make main thread hang in `copy_from_user` function. At this time, in fault handling thread, we do a pop operation, the uninitialized value (remaining `struct ipc_namespace *ns` pointer, it will be an address located in kernel data area) is read and we know the kernel base address.
 
 Next, we could trigger double-free using pop cmd. When calling `copy_to_user`, we make main thread hang and in fault handling thread we do a pop cmd again. Thus the same chunk would be freed twice continously, its `fd` ptr points to itself. 
 
