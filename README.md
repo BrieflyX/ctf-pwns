@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [Spark - HITCON CTF 2020](./kernel/spark)
 - [Darkunion - CSAW CTF Finals 2020](./kernel/darkunion)
 - [Through the Backdoor - Hack.lu 2020](./escape/ThroughTheBackdoor)
 - [Kstack - Seccon 2020](./kernel/kstack)
