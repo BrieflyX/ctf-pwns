@@ -1,0 +1,29 @@
+version: '2.2'
+
+services:
+    pwn:
+        build: ./
+        volumes: 
+            - ./share:/home/pwn:ro 
+            - ./xinetd:/etc/xinetd.d/xinetd:ro
+            - ./tmp:/tmp:ro
+        ports:
+            - "60001:8888"
+            - "60002:1234"
+        expose:
+            - "8888"
+            - "1234"
+        pids_limit: 1024
+        cpus: 0.5
+        restart: unless-stopped
+    tools:
+        image: yangby0cryptape/riscv-gnu-toolchain:rv64imac-newlib-20200821
+        volumes:
+            - .:/work
+        command: "sleep infinity"
+        
+#networks:
+#    default:
+#        external:
+#            name: pwn
+
