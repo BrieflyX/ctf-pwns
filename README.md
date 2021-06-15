@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [pza999 - DEFCON CTF 2021 Quals](./kernel/pza999)
 - [Favourite Architecture II - Startctf 2021](./escape/favourite_architecture)
 - [Easy Escape - Realworld CTF 3rd](./escape/EasyEscape)
 - [pfoten - HXP CTF 2020](./kernel/pfoten)
