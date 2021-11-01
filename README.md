@@ -4,6 +4,10 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [FaaS - Hack.lu CTF 2021](./others/faas)
+- [Cloud Inspect - Hack.lu CTF 2021](./escape/cloudinspect)
+- [Stonks Socket - Hack.lu CTF 2021](./kernel/stonks_socket)
+- [coooinbase_kernel - Defcon CTF 2021 Quals](./kernel/coooinbase)
 - [pza999 - DEFCON CTF 2021 Quals](./kernel/pza999)
 - [Favourite Architecture II - Startctf 2021](./escape/favourite_architecture)
 - [Easy Escape - Realworld CTF 3rd](./escape/EasyEscape)
