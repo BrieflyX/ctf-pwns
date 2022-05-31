@@ -4,6 +4,7 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [Teedium Wallet - DefCON CTF 2022 Quals](./escape/TeediumWallet)
 - [FaaS - Hack.lu CTF 2021](./others/faas)
 - [Cloud Inspect - Hack.lu CTF 2021](./escape/cloudinspect)
 - [Stonks Socket - Hack.lu CTF 2021](./kernel/stonks_socket)
