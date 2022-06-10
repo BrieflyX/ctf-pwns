@@ -44,6 +44,10 @@ To build exploit and interact with TA, I refer to some [examples](https://github
 To build a simple CA, we need a header file defining API (`tee_client_api.h`), and libraries copied from rootfs.
 And we could simply reuse `main.c` in `optee_examples/helloword_world/host`.
 
+## External write-ups
+
+- https://github.com/5lipper/ctf/tree/master/defcon30-quals/teedium
+
 ## Reference
 
 - Official repo (with source code): https://ptr-yudai.hatenablog.com/entry/2020/06/01/102049#Pwn-340pts-Trusted-Node
