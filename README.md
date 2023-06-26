@@ -4,6 +4,8 @@ Some of my ctf pwn challenge collections.
 
 ## Index
 
+- [kconcat - Google CTF 2023](./kernel/kconcat)
+- [WatTheWasm - Google CTF 2023](./browser/watthewasm)
 - [ChatTGE - DefCON CTF 2023 Quals](./others/chattge)
 - [Teedium Wallet - DefCON CTF 2022 Quals](./escape/TeediumWallet)
 - [FaaS - Hack.lu CTF 2021](./others/faas)
